@@ -1,0 +1,353 @@
+/* ==========================================================================
+   COLOR SYSTEM — SKY BLUE CANVAS / BLACK TEXT ONLY
+   ========================================================================== */
+:root {
+  /* 60% Canvas & Backgrounds */
+  --bg-page: #E0F2FE;              /* Sky blue base */
+  --bg-card: #F0F9FF;              /* Light sky surface */
+  --bg-card-subtle: #E0F2FE;       /* Tint for table header & subtle hover */
+
+  /* 30% Sky Blue Accents & Borders */
+  --border-sky: #7DD3FC;
+  --border-sky-subtle: #BAE6FD;
+  --text-welcome-only: #0284C7;    /* Sky blue reserved strictly for main title */
+
+  /* 10% Absolute Black for All Other Text */
+  --text-pure-black: #000000;
+
+  /* Button Specific */
+  --btn-bg: #FFFFFF;
+  --btn-border: #BAE6FD;
+
+  /* Layout Constants */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-full: 9999px;
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sky: 0 8px 24px rgba(2, 132, 199, 0.12);
+  --shadow-hover: 0 12px 28px rgba(2, 132, 199, 0.20);
+}
+
+/* ==========================================================================
+   DASHBOARD LAYOUT & ANIMATION
+   ========================================================================== */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: var(--bg-page);
+  min-height: 100vh;
+  padding: 1.5rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* "Welcome to AI Interview Coach" — ONLY blue text */
+.dashboard-heading {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-welcome-only);
+  letter-spacing: -0.02em;
+}
+
+.dashboard-subheading {
+  font-size: 0.95rem;
+  color: #000000;
+  margin-top: 0.25rem;
+}
+
+.dashboard-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* ==========================================================================
+   CARDS
+   ========================================================================== */
+.config-card,
+.resume-card,
+.history-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-sky-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-sky);
+  transition: var(--transition);
+}
+
+.config-card:hover,
+.resume-card:hover,
+.history-card:hover {
+  border-color: var(--border-sky);
+  box-shadow: var(--shadow-hover);
+}
+
+.card-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-sky-subtle);
+}
+
+.card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: #FFFFFF;
+  color: #000000;
+  border: 1px solid var(--border-sky-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.card-heading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #000000;
+}
+
+/* ==========================================================================
+   FORM CONTROLS & CHIPS
+   ========================================================================== */
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.role-badge-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.role-chip {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+  background: #FFFFFF;
+  border: 1px solid var(--border-sky);
+  color: #000000;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.role-chip:hover {
+  background: #E0F2FE;
+  border-color: #000000;
+  color: #000000;
+}
+
+.role-chip.selected {
+  background: #FFFFFF;
+  color: #000000;
+  border-color: #000000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.form-input,
+.form-select,
+textarea {
+  width: 100%;
+  background: #FFFFFF;
+  color: #000000;
+  border: 1px solid var(--border-sky);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.85rem;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.form-input::placeholder,
+textarea::placeholder {
+  color: #000000;
+  opacity: 0.6;
+}
+
+.form-input:focus,
+.form-select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #000000;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+}
+
+/* ==========================================================================
+   PRIMARY BUTTONS (WHITE BG + BLACK TEXT)
+   ========================================================================== */
+.dashboard-container .btn-primary {
+  background: var(--btn-bg);
+  color: #000000;
+  border: 1px solid var(--btn-border);
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15);
+  transition: var(--transition);
+}
+
+.dashboard-container .btn-primary:hover:not(:disabled) {
+  background: #F8FAFC;
+  border-color: #000000;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================================================
+   FILE UPLOAD AREA
+   ========================================================================== */
+.file-upload-box {
+  background: #FFFFFF;
+  border: 2px dashed var(--border-sky);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.file-upload-box:hover,
+.file-upload-box.dragover {
+  background: var(--bg-card-subtle);
+  border-color: #000000;
+}
+
+.upload-icon {
+  color: #000000;
+}
+
+.upload-text {
+  color: #000000;
+  font-weight: 600;
+}
+
+.upload-hint {
+  color: #000000;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+   STATISTICS
+   ========================================================================== */
+.stats-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+
+.stat-item {
+  background: #FFFFFF;
+  border: 1px solid var(--border-sky-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  box-shadow: var(--shadow-sky);
+}
+
+.stat-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #000000;
+  letter-spacing: 0.05em;
+}
+
+.stat-value {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #000000;
+}
+
+.stat-change {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #000000;
+}
+
+/* ==========================================================================
+   HISTORY DATA TABLE
+   ========================================================================== */
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.history-table th {
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  color: #000000;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 2px solid var(--border-sky);
+  background: var(--bg-card-subtle);
+}
+
+.history-table td {
+  padding: 1rem;
+  font-size: 0.875rem;
+  color: #000000;
+  border-bottom: 1px solid var(--border-sky-subtle);
+  background: #FFFFFF;
+}
+
+.history-table tr:hover td {
+  background: var(--bg-card-subtle);
+  color: #000000;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 992px) {
+  .dashboard-main-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .config-card,
+  .resume-card,
+  .history-card {
+    padding: 1.25rem;
+  }
+
+  .dashboard-heading {
+    font-size: 1.6rem;
+  }
+}

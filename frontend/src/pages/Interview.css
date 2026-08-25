@@ -1,0 +1,564 @@
+/* ==========================================================================
+   LIVE MULTI-AGENT INTERVIEW ROOM STYLES
+   src/pages/Interview.css
+   ========================================================================== */
+
+/* Main Interview Layout */
+.interview-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 1.5rem;
+  height: calc(100vh - 120px);
+  min-height: 600px;
+}
+
+/* ==========================================================================
+   MAIN INTERVIEW AREA
+   ========================================================================== */
+
+.interview-main {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  min-width: 0;
+}
+
+/* Interview Header */
+.interview-header {
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--border-subtle);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.session-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.session-info h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.session-info p {
+  margin: 0.2rem 0 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Live Badge */
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-rose);
+
+  background: rgba(244, 63, 94, 0.12);
+  border: 1px solid rgba(244, 63, 94, 0.2);
+
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--accent-rose);
+
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(244, 63, 94, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(244, 63, 94, 0);
+  }
+}
+
+/* ==========================================================================
+   MESSAGES / CONVERSATION
+   ========================================================================== */
+
+.messages-container {
+  flex: 1;
+
+  padding: 1.5rem;
+
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar */
+.messages-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.messages-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.messages-container::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: var(--radius-full);
+}
+
+/* Message Bubble */
+.message-bubble {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+
+  max-width: 85%;
+
+  animation: slideUp 0.25s ease-out;
+}
+
+.message-bubble.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   AGENT ICONS
+   ========================================================================== */
+
+.agent-icon {
+  width: 38px;
+  height: 38px;
+
+  border-radius: var(--radius-full);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+  font-size: 0.75rem;
+
+  flex-shrink: 0;
+
+  color: #ffffff;
+}
+
+.agent-icon.lead {
+  background: var(--agent-lead);
+}
+
+.agent-icon.tech {
+  background: var(--agent-tech);
+}
+
+.agent-icon.behavioral {
+  background: var(--agent-behavioral);
+}
+
+.agent-icon.coach {
+  background: var(--agent-coach);
+}
+
+.agent-icon.user {
+  background: var(--primary);
+}
+
+/* ==========================================================================
+   MESSAGE CONTENT
+   ========================================================================== */
+
+.message-content {
+  background: var(--bg-input);
+
+  border: 1px solid var(--border-subtle);
+
+  border-radius: var(--radius-lg);
+
+  padding: 0.85rem 1.15rem;
+
+  min-width: 0;
+}
+
+.message-bubble.user .message-content {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.message-content p {
+  margin: 0;
+
+  font-size: 0.9rem;
+  line-height: 1.55;
+
+  color: var(--text-secondary);
+}
+
+.message-content p + p {
+  margin-top: 0.65rem;
+}
+
+.message-bubble.user .message-content p {
+  color: #ffffff;
+}
+
+/* Agent Name */
+.agent-name {
+  font-size: 0.725rem;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.05em;
+
+  margin-bottom: 0.35rem;
+}
+
+.lead-color {
+  color: var(--agent-lead);
+}
+
+.tech-color {
+  color: var(--agent-tech);
+}
+
+.behavioral-color {
+  color: var(--agent-behavioral);
+}
+
+.coach-color {
+  color: var(--agent-coach);
+}
+
+/* ==========================================================================
+   ANSWER CONTROLS
+   ========================================================================== */
+
+.interview-controls {
+  padding: 1rem 1.5rem;
+
+  background: rgba(255, 255, 255, 0.02);
+
+  border-top: 1px solid var(--border-subtle);
+
+  display: flex;
+  align-items: center;
+
+  gap: 0.75rem;
+}
+
+.input-field {
+  flex: 1;
+
+  min-width: 0;
+
+  padding: 0.75rem 1rem;
+
+  background: var(--bg-input);
+
+  border: 1px solid var(--border-subtle);
+
+  border-radius: var(--radius-md);
+
+  color: var(--text-primary);
+
+  font-size: 0.95rem;
+
+  font-family: inherit;
+
+  transition: var(--transition);
+}
+
+.input-field::placeholder {
+  color: var(--text-muted);
+}
+
+.input-field:focus {
+  outline: none;
+
+  border-color: var(--primary);
+
+  box-shadow: 0 0 0 3px var(--border-focus);
+}
+
+.input-field:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   SIDEBAR
+   ========================================================================== */
+
+.interview-sidebar {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+
+  min-width: 0;
+}
+
+.sidebar-card {
+  background: var(--bg-card);
+
+  border: 1px solid var(--border-subtle);
+
+  border-radius: var(--radius-lg);
+
+  padding: 1.25rem;
+
+  box-shadow: var(--shadow-md);
+}
+
+.sidebar-card h3 {
+  margin: 0 0 0.9rem;
+
+  font-size: 1rem;
+
+  font-weight: 700;
+
+  color: var(--text-primary);
+}
+
+.sidebar-card p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 0.875rem;
+
+  line-height: 1.55;
+}
+
+.sidebar-card p + p {
+  margin-top: 0.75rem;
+}
+
+/* ==========================================================================
+   ACTIVE AGENT LIST
+   ========================================================================== */
+
+.active-agent-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.65rem;
+}
+
+.agent-status-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  font-size: 0.85rem;
+
+  padding: 0.55rem 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.agent-status-item:last-child {
+  border-bottom: none;
+}
+
+.agent-status-item > span:last-child {
+  color: var(--text-muted);
+
+  font-size: 0.75rem;
+
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   PROGRESS BAR
+   ========================================================================== */
+
+.progress-bar-bg {
+  width: 100%;
+
+  height: 8px;
+
+  margin-top: 0.75rem;
+
+  background: var(--bg-input);
+
+  border-radius: var(--radius-full);
+
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+
+  border-radius: var(--radius-full);
+
+  background: linear-gradient(
+    90deg,
+    var(--primary),
+    var(--accent-cyan)
+  );
+
+  transition: width 0.5s ease;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+  .interview-layout {
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .interview-layout {
+    grid-template-columns: 1fr;
+
+    height: auto;
+
+    min-height: auto;
+  }
+
+  .interview-main {
+    height: 620px;
+  }
+
+  .interview-sidebar {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .interview-main {
+    height: 600px;
+
+    border-radius: var(--radius-md);
+  }
+
+  .interview-header {
+    padding: 0.9rem 1rem;
+  }
+
+  .session-info {
+    gap: 0.6rem;
+  }
+
+  .session-info h2 {
+    font-size: 1rem;
+  }
+
+  .live-badge {
+    font-size: 0.65rem;
+  }
+
+  .messages-container {
+    padding: 1rem;
+
+    gap: 1rem;
+  }
+
+  .message-bubble {
+    max-width: 92%;
+  }
+
+  .agent-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 0.7rem;
+  }
+
+  .message-content {
+    padding: 0.75rem 0.9rem;
+  }
+
+  .message-content p {
+    font-size: 0.85rem;
+  }
+
+  .interview-controls {
+    padding: 0.8rem 1rem;
+  }
+
+  .input-field {
+    font-size: 0.875rem;
+  }
+
+  .interview-sidebar {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .interview-header {
+    align-items: flex-start;
+  }
+
+  .session-info {
+    flex-wrap: wrap;
+  }
+
+  .interview-header .btn {
+    font-size: 0.75rem;
+    padding: 0.55rem 0.75rem;
+  }
+
+  .message-bubble {
+    max-width: 96%;
+  }
+
+  .interview-controls {
+    gap: 0.5rem;
+  }
+
+  .interview-controls .btn {
+    padding: 0.7rem 0.9rem;
+  }
+}
