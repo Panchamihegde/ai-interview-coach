@@ -71,7 +71,7 @@ if (!questions || questions.length === 0) {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "https://ai-interview-coach-backend-1oth.onrender.com/interview/evaluate",
+        "https://ai-interview-coach-backend-i3hw.onrender.com/interview/evaluate",
         {
           method: "POST",
 

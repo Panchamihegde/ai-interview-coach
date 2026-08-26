@@ -120,7 +120,7 @@ function Dashboard() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "https://ai-interview-coach-backend-1oth.onrender.com/interview/analyze-input",
+        "https://ai-interview-coach-backend-i3hw.onrender.com/interview/analyze-input",
         {
           method: "POST",
 
