@@ -71,7 +71,7 @@ if (!questions || questions.length === 0) {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://127.0.0.1:8000/interview/evaluate",
+        "https://ai-interview-coach-backend-1oth.onrender.com/interview/evaluate",
         {
           method: "POST",
 

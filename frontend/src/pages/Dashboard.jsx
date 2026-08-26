@@ -120,7 +120,7 @@ function Dashboard() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://127.0.0.1:8000/interview/analyze-input",
+        "https://ai-interview-coach-backend-1oth.onrender.com/interview/analyze-input",
         {
           method: "POST",
 
